@@ -1,0 +1,11 @@
+<FlexboxLayout>
+    <Button [isEnabled]="!done" height="60" *ngIf="status!==1" class="btn btn-success btn-rounded-lg" text="Completed" (tap)="onStatusChange('complete')"></Button>
+    <StackLayout height="60" class="btn btn-success btn-rounded-lg" *ngIf="status===1">
+        <Label class="fa btn-alt btn-animate" horizontalAlignment="center" text="&#xf00c;"></Label>
+    </StackLayout>
+    <Button height="60" [isEnabled]="!done" *ngIf="status!==2"class="btn btn-fail btn-rounded-lg" text="Failed" (tap)="onStatusChange('fail')"></Button>
+    <StackLayout height="60" class="btn btn-fail btn-rounded-lg" *ngIf="status===2">
+        <Label class="fa btn-alt btn-animate" horizontalAlignment="center" text="&#xf00d;"></Label>
+    </StackLayout>
+    <Button class="btn btn-flat" [text]="resetText" (tap)="onStatusChange('cancel')"></Button>
+</FlexboxLayout>

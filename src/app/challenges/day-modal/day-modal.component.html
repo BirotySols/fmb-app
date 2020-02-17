@@ -1,0 +1,20 @@
+<FlexboxLayout class="modal">
+    <GridLayout class="menu" columns="auto,auto" rows="auto">
+        <StackLayout horizontalAlignment="left" class="menu-details" row="0" col="0">
+            <Label class="h1" text="Menu Of The Day"></Label>
+            <Label text="description jkjdkfjkdfjdkfjkdjfkfkljdkjfkdjfkjkjdjk" textWrap="true"></Label>
+        </StackLayout>
+        <Image row="0" col="1"
+         Width="50" Height="50" src="res://box" class="img-circle"></Image>
+    </GridLayout>
+    <FlexboxLayout class="form">
+        <StackLayout class="input-field">
+            <Label class="label" text="Menu" [ngClass]="{invalid:!dayMenu.valid}" ></Label>
+            <TextField required returnKeyType="done" [formControl]="dayMenu"  class="input"></TextField>
+            <Label  *ngIf=" !dayMenu.valid" text="please enter menu for the day"></Label>
+          </StackLayout>
+          <button class="btn btn-primary btn-rounded-sm" text="Go" (tap)="updateMenu()" ></button>
+    </FlexboxLayout>
+    <Label class="label" [text]="loadedDate | date"></Label>
+    <ns-challenge-actions [actionStatus]="status"  (actionSelected)="onHandleInput($event)"></ns-challenge-actions>
+</FlexboxLayout>

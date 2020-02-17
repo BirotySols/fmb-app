@@ -1,0 +1,82 @@
+@import '~nativescript-theme-core/scss/light';
+
+@import './themes/colors';
+
+@import '~nativescript-theme-core/scss/index';
+
+ActionBar{
+    background: $primary;
+    color:white;
+}
+.form{
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction:column;
+
+    .input-field{
+        width:80%;
+       .label.invalid{
+            color:red;
+        }
+        .label{
+            color:$primary;
+            font-weight: bold;
+            font-family: 'Oswald','Oswald-Bold','Oswald-Regular';
+        }
+
+     
+        .input{
+            border-bottom-width: 2;
+            border-bottom-color: $primary;
+            width: 100%;
+            color:black;
+        }
+
+        .input.ng-invalid.ng-touched{
+            color:$failed;
+            border-bottom-color: $failed;
+        }
+    }
+
+}
+
+
+.btn-flat{
+    background-color: transparent;
+    border-color: transparent;
+    border-width: 1;
+    color: $primary;
+}
+
+// }
+// .form-control {
+//     border-bottom-color: #7c015d;
+//     border-bottom-width: 2;
+//     margin: 5 0;
+//     font-size: 20;
+//     padding: 8 4;
+//   }
+  
+  .drawer-container{
+    background: linear-gradient(140deg,#2b0c72,#5c3fa0);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:20;
+    .btn{
+        font-size: 24;
+        height: 45;
+        width: 80%;
+    }
+  }
+  
+  .h1{
+      font-weight: bold;
+      color:$primary;
+      font-family: 'Oswald','Oswald-Bold','Oswald-Regular';
+  }
+
+  .fa{
+      font-family: 'FontAwesome','fa-solid-900';
+  }
+

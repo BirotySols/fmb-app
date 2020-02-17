@@ -1,0 +1,30 @@
+<ns-action-bar [title]="isSignUp?'Register':'Login'" [showBackButton]="false" [hasMenu]="false"></ns-action-bar >
+    <FlexboxLayout class="form" [formGroup]="form">
+        <StackLayout class="input-field">
+          <Label class="label" text="E-mail" [ngClass]="{invalid:!form.get('email').valid && form.get('email').touched}" ></Label>
+          <TextField keyboardType="email" autocapitalizationType="none"
+          [autoCorrect]="false" formControlName="email"
+          #emailControl
+           returnKeyType="next" class="input">
+        </TextField>
+        <Label  *ngIf="!form.get('email').valid && form.get('email').touched" text="please enter valid email"></Label>
+        </StackLayout>
+        <StackLayout class="input-field">
+          <Label class="label" text="Password" [ngClass]="{invalid:!form.get('password').valid && form.get('password').touched}" ></Label>
+          <TextField class="input" returnKeyType="done" 
+            [secure]="true" autocapitalizationType="none"
+            [autoCorrect]="false"
+            formControlName="password"
+            hint="min 6 characters"
+            (returnPress)="onReturn()"
+            #passwordControl
+          ></TextField>
+          <Label  *ngIf="!form.get('password').valid && form.get('password').touched" text="please enter valid password"></Label>
+        </StackLayout>
+        <Label #switchCtrl class="btn-flat" 
+            [text]="isSignUp?'Login':'Register'" 
+            (tap)="isSignUp=!isSignUp">
+        </Label>
+        <Button [text]="isSignUp?'Register':'Login'"class="btn btn-primary btn-rounded-lg" (tap)="onSubmit()" [isEnabled]="form.valid">
+        </Button>
+      </FlexboxLayout>

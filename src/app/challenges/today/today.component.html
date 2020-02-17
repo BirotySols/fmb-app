@@ -1,0 +1,15 @@
+<ns-action-bar title="Today's Challange" [showBackButton]="false"></ns-action-bar>
+<FlexboxLayout class= "page" *ngIf="!currentDay">
+    <Label class="label" text="No Menu available!"></Label>
+    <Button class="btn btn-primary" text="Add Menu" nsRouterLink="/challenges/replace" 
+      nsRouterLinkActive="Active" pageTransition="slideLeft" ></Button>
+  </FlexboxLayout>
+<FlexboxLayout class="page" *ngIf="currentDay">
+    <Label class="h1" [text]="currentDay.date | date"></Label>
+    <FlexboxLayout alignItems="center" justifyContent="center">
+      <Label class="label" text="Menu for the Day: "></Label>
+      <Label class="h1" [text]="currentDay.dayMenu"></Label>
+    </FlexboxLayout>
+    
+    <ns-challenge-actions [disableAction]="currentDay?.status==1 || currentDay?.status==2" [actionStatus]="currentDay?.status" resetText="Reset" (actionSelected)="onHandleInput($event)"></ns-challenge-actions>
+</FlexboxLayout>

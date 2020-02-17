@@ -1,0 +1,11 @@
+<ActionBar [title]="title" (loaded)="onActionBarLoaded()">
+    <NavigationButton *ngIf="canGoBack" 
+        text="back" android.systemIcon="ic_menu_back" (tap)="onGoBack()">
+    </NavigationButton>
+    <NavigationButton *ngIf="hasMenu" ios:visibility="collapsed" 
+     icon="res://menu_black" (tap)="toggle()"></NavigationButton>
+    <ActionItem android:visibility="collapsed" ios:visibility="hasMenu ? 'visible':'collapsed'" (tap)="toggle()">
+        <Label class="fa m-5" text="&#xf0c9;"></Label>
+    </ActionItem>
+    <ng-content></ng-content>
+</ActionBar>

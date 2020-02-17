@@ -1,0 +1,39 @@
+@import '../../../themes/colors';
+
+.page {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20;
+}
+.week-day{
+  color:$secondary;
+  font-weight:bold;
+  margin:15,0
+}
+
+.day{
+  justify-content: center;
+  align-items: center;
+  width:40;
+  height:40;
+  border-color: $primary;
+  border-width: 1;
+  border-radius: 50%;
+  color:$primary;
+  margin:10;
+}
+
+.completed{
+  color:white;
+  background-color: $success;
+}
+.failed{
+  color:white;
+  background-color: $failed;
+}
+
+.na{
+  columns: #535353;
+  background-color: #ccc;
+}
