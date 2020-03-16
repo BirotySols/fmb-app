@@ -7,6 +7,7 @@ import { ChallengesTabComponent } from "./challenges-tab/challenges-tab.componen
 import { CurrentChallengeComponent } from "./current-challenge/current-challenge.component";
 import { ChallengesRoutingModule } from "./challenges.routing.module";
 import { TodayComponent } from "./today/today.component";
+
 @NgModule({
     imports :[NativeScriptCommonModule,NativeScriptRouterModule,SharedModule,ChallengeActionsModule,ChallengesRoutingModule],
     declarations:[ChallengesTabComponent,CurrentChallengeComponent,TodayComponent],

@@ -20,7 +20,7 @@ export class ChallengesTabComponent implements OnInit{
             err=> {
                 console.log(err);
                 this.isLoading=false;
-                this.navigateToTabs();
+                this.router.navigate(['error']);
             })
     }
     constructor(private page:Page,private router:RouterExtensions,private route:ActivatedRoute,private challengeService:ChallengeService){}

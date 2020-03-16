@@ -5,17 +5,14 @@ import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 import {NativeScriptUISideDrawerModule} from 'nativescript-ui-sidedrawer/angular';
 import {enable as enableTrace} from 'tns-core-modules/trace';
 
-import { AppComponent } from './app.component';
-
-import { AuthComponent } from './auth/auth.component';
-
 import { AppRoutingModule } from './app-routing.module';
 
-
+import { AppComponent } from './app.component';
 import { DayModalComponent } from './challenges/day-modal/day-modal.component';
-import { SharedModule } from './shared/shared.module';
+//import { SharedModule } from './shared/shared.module';
 import { ChallengeActionsModule } from './challenges/challenge-actions/challenge-actions.module';
-import { ReactiveFormsModule } from '@angular/forms';
+//import { ReactiveFormsModule } from '@angular/forms';
+import { ErrorComponent } from './shared/ui/error.component';
 
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
@@ -30,11 +27,14 @@ export class ErrorHandle implements ErrorHandler{
 
 @NgModule({
   bootstrap: [AppComponent],
-  imports: [NativeScriptModule, NativeScriptUISideDrawerModule,NativeScriptFormsModule,
-    ReactiveFormsModule,NativeScriptHttpClientModule,SharedModule,ChallengeActionsModule,
+  imports: [NativeScriptModule,
+    NativeScriptUISideDrawerModule,
+    NativeScriptHttpClientModule,
+    NativeScriptFormsModule,
+    ChallengeActionsModule,
     AppRoutingModule],
-  declarations: [AppComponent, AuthComponent,DayModalComponent],
-  providers: [{provide:ErrorHandler,useClass:ErrorHandle}],
+  declarations: [AppComponent,DayModalComponent,ErrorComponent],
+  //providers: [{provide:ErrorHandler,useClass:ErrorHandle}],
   entryComponents:[DayModalComponent],
   schemas: [NO_ERRORS_SCHEMA]
 })

@@ -4,6 +4,8 @@ import { UIService } from "./shared/services/ui.service";
 import { Subscription } from "rxjs";
 
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
+import { AuthService } from "./auth/auth.service";
+import { RouterExtensions } from "nativescript-angular/router";
 
 @Component({
     selector: "ns-app",
@@ -12,7 +14,7 @@ import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 })
 export class AppComponent implements OnInit {
     subs:Subscription;
-   constructor(private uiService:UIService,private vcRef:ViewContainerRef){
+   constructor(private uiService:UIService,private vcRef:ViewContainerRef,private authService:AuthService){
 
    }
    ngOnInit(){
@@ -21,9 +23,10 @@ export class AppComponent implements OnInit {
            if(drawer)
             drawer.toggleDrawerState();
        });
-       this.uiService.setVCRef(this.vcRef)
+       this.uiService.setVCRef(this.vcRef);
    }
    logout(){
        this.uiService.toggleDrawer();
+       this.authService.logout();
    }
  }

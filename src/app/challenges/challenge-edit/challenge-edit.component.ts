@@ -29,7 +29,7 @@ export class ChallengeEditComponent implements OnInit{
     }
     onSubmit(){
     
-        this.challengeService.createChallenge( this.challenge)
+        this.challengeService.createChallenge(this.challenge)
         this.router.backToPreviousPage();
     }
 }

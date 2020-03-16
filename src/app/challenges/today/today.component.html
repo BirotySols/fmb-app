@@ -6,10 +6,10 @@
   </FlexboxLayout>
 <FlexboxLayout class="page" *ngIf="currentDay">
     <Label class="h1" [text]="currentDay.date | date"></Label>
-    <FlexboxLayout alignItems="center" justifyContent="center">
+    <FlexboxLayout alignItems="center" justifyContent="center" flexDirection="column">
       <Label class="label" text="Menu for the Day: "></Label>
-      <Label class="h1" [text]="currentDay.dayMenu"></Label>
+      <ns-menu-items [menuItems]="currentDay?.dayMenu"></ns-menu-items>
     </FlexboxLayout>
-    
+    <Label class="h2" [text]="currentDay?.message"></Label>
     <ns-challenge-actions [disableAction]="currentDay?.status==1 || currentDay?.status==2" [actionStatus]="currentDay?.status" resetText="Reset" (actionSelected)="onHandleInput($event)"></ns-challenge-actions>
 </FlexboxLayout>

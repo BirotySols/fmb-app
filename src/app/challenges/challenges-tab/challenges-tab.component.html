@@ -1,4 +1,4 @@
-<TabView androidTabsPosition="bottom">
+<TabView androidTabsPosition="bottom" *ngIf="!isLoading">
     <StackLayout *tabItem="{title:'Today' ,iconSource:'res://delivery'}">
         <page-router-outlet name="today"></page-router-outlet>
     </StackLayout>

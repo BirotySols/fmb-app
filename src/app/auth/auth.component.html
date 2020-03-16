@@ -25,6 +25,9 @@
             [text]="isSignUp?'Login':'Register'" 
             (tap)="isSignUp=!isSignUp">
         </Label>
-        <Button [text]="isSignUp?'Register':'Login'"class="btn btn-primary btn-rounded-lg" (tap)="onSubmit()" [isEnabled]="form.valid">
+        <Button [isEnabled]="!isAuthenticating" [text]="isSignUp?'Register':'Login'"class="btn btn-primary btn-rounded-lg" (tap)="onSubmit()" [isEnabled]="form.valid">
         </Button>
+        <FlexboxLayout *ngIf="isAuthenticating">
+          <ActivityIndicator [busy]="isAuthenticating"></ActivityIndicator>
+        </FlexboxLayout>
       </FlexboxLayout>

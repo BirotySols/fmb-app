@@ -9,5 +9,6 @@ export interface Day{
      dayInWeek:number;
      date:Date;
      count:number;
-     dayMenu:string
+     dayMenu:string[];
+     message:string;
 }

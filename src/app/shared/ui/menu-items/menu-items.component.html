@@ -1,0 +1,9 @@
+<FlexboxLayout>
+    <FlexboxLayout class="menu-items" *ngIf="menuItems">
+        <Label *ngFor="let dish of menuItems" [text]="dish" textWrap="true" class="menu-item"></Label>
+    </FlexboxLayout>
+    
+    <FlexboxLayout class="menu-items" *ngIf="!menuItems">
+        <Label text="No Dish" textWrap="true" class="menu-item" ></Label>
+    </FlexboxLayout> 
+</FlexboxLayout>

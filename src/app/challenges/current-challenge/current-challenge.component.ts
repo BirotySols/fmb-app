@@ -49,9 +49,17 @@ export class CurrentChallengeComponent implements OnInit,OnDestroy  {
       fullscreen:true,
       context:{date:day.date,status:day.status,menu:day.dayMenu},
       viewContainerRef:this.uiService.getVCRef()? this.uiService.getVCRef():this.vcRef 
-    }).then((modRes:{action:DayStatus,menu:string})=>{
-      if(modRes.action!==DayStatus.Open)
-        this.challengeService.updateDayStatus(day.dayInMonth,modRes.action,modRes.menu);
+    }).then((modRes:{action:DayStatus,menu:string[]})=>{
+      if(modRes){
+        let dayToSave:Day={...day};
+        dayToSave.status=modRes.action;
+        dayToSave.dayMenu=modRes.menu;
+       //dayToSave= Object.assign(dayToSave,{status:modRes.action,menu:modRes.menu,...day})
+        this.challengeService.updateDay(dayToSave);
+      }
+        
+      
+
     });
   }
 

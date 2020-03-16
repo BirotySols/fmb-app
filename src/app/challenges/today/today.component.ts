@@ -24,6 +24,9 @@ export class TodayComponent implements OnInit, OnDestroy{
             this.curDaySub.unsubscribe();
     }
     onHandleInput(action:DayStatus){
-        this.challengeService.updateDayStatus(this.currentDay.dayInMonth,action,this.currentDay.dayMenu);
+        let dayToSave:Day={...this.currentDay};
+        dayToSave.status=action;
+        //Object.assign(dayToSave,{status:action,...this.currentDay});
+        this.challengeService.updateDay(dayToSave);
     }
 }

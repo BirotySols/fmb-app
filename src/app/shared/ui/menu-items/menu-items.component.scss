@@ -1,0 +1,19 @@
+@import '../../../../themes/colors';
+.menu-items {
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    border-width: 1;
+    
+    .menu-item{
+        border-radius: 50%;
+        border-style: solid;
+        border-color: blue;
+        border-width: 1;
+        width:100;
+        background-color: #fff;
+        color: $primary;
+        font-family: 'Roboto','Roboto-Bold','Roboto-Regular' ;
+    }
+
+}
